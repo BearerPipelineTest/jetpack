@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e04faa493e30e124b8a012589019cc03",
+    "content-hash": "760911eb54f053f9d55b954963c57c77",
     "packages": [
         {
             "name": "automattic/jetpack-a8c-mc-stats",
@@ -203,16 +203,16 @@
         },
         {
             "name": "automattic/jetpack-autoloader",
-            "version": "v2.11.0",
+            "version": "v2.10.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Automattic/jetpack-autoloader.git",
-                "reference": "c55116c575f5725e28fc96ca5367ddbc6090e34b"
+                "reference": "a4a7e59ff1471c4890c238379140f03a664a74f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Automattic/jetpack-autoloader/zipball/c55116c575f5725e28fc96ca5367ddbc6090e34b",
-                "reference": "c55116c575f5725e28fc96ca5367ddbc6090e34b",
+                "url": "https://api.github.com/repos/Automattic/jetpack-autoloader/zipball/a4a7e59ff1471c4890c238379140f03a664a74f9",
+                "reference": "a4a7e59ff1471c4890c238379140f03a664a74f9",
                 "shasum": ""
             },
             "require": {
@@ -231,7 +231,7 @@
                     "link-template": "https://github.com/Automattic/jetpack-autoloader/compare/v${old}...v${new}"
                 },
                 "branch-alias": {
-                    "dev-master": "2.11.x-dev"
+                    "dev-master": "2.10.x-dev"
                 }
             },
             "autoload": {
@@ -248,9 +248,9 @@
             ],
             "description": "Creates a custom autoloader for a plugin or theme.",
             "support": {
-                "source": "https://github.com/Automattic/jetpack-autoloader/tree/v2.11.0"
+                "source": "https://github.com/Automattic/jetpack-autoloader/tree/v2.10.13"
             },
-            "time": "2022-03-08T17:34:06+00:00"
+            "time": "2022-03-01T20:37:25+00:00"
         },
         {
             "name": "automattic/jetpack-backup",
