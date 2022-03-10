@@ -20,6 +20,7 @@ import SectionNav from 'components/section-nav';
 import {
 	getSiteRawUrl,
 	showRecommendations,
+	getNewRecommendationsCount,
 	userCanManageModules as _userCanManageModules,
 	userCanViewStats as _userCanViewStats,
 	getPurchaseToken,
@@ -98,7 +99,16 @@ export class Navigation extends React.Component {
 							onClick={ this.trackRecommendationsClick }
 							selected={ this.props.location.pathname.startsWith( '/recommendations' ) }
 						>
-							{ _x( 'Recommendations', 'Navigation item.', 'jetpack' ) }
+							{ _x( 'Recommendations ', 'Navigation item.', 'jetpack' ) }
+							{ this.props.newRecommendationsCount > 0 && (
+								<span
+									className={
+										'dops-section-nav-tab__update-badge count-' + this.props.newRecommendationsCount
+									}
+								>
+									<span className="update-count">{ this.props.newRecommendationsCount }</span>
+								</span>
+							) }
 						</NavItem>
 					) }
 				</NavTabs>
@@ -139,6 +149,7 @@ export default connect( state => {
 		isLinked: isCurrentUserLinked( state ),
 		hasConnectedOwner: hasConnectedOwner( state ),
 		showRecommendations: showRecommendations( state ),
+		newRecommendationsCount: getNewRecommendationsCount( state ),
 		siteUrl: getSiteRawUrl( state ),
 		purchaseToken: getPurchaseToken( state ),
 	};

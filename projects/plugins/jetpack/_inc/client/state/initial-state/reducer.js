@@ -392,6 +392,16 @@ export function showRecommendations( state ) {
 }
 
 /**
+ * Get a count of new recommendations for this site
+ *
+ * @param {object} state - Global state tree
+ * @returns {number} - Count of recommendations
+ */
+export function getNewRecommendationsCount( state ) {
+	return get( state.jetpack.initialState, 'newRecommendationsCount', 0 );
+}
+
+/**
  * Determines if the Jetpack Licensing UI should be displayed
  *
  * @param {object} state - Global state tree
