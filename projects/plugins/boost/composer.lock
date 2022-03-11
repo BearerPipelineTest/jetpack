@@ -323,7 +323,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../packages/connection",
-                "reference": "be5e86c601726a67c4055b373473095f91e1f20d"
+                "reference": "bf300e82c55a6913e083c24c2461f72cfed23309"
             },
             "require": {
                 "automattic/jetpack-a8c-mc-stats": "^1.4",
