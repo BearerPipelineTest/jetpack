@@ -20,11 +20,11 @@ import SectionNav from 'components/section-nav';
 import {
 	getSiteRawUrl,
 	showRecommendations,
-	getNewRecommendationsCount,
 	userCanManageModules as _userCanManageModules,
 	userCanViewStats as _userCanViewStats,
 	getPurchaseToken,
 } from 'state/initial-state';
+import { getNewConditionalRecommendationsCount } from 'state/recommendations';
 
 export class Navigation extends React.Component {
 	trackNavClick = target => {
@@ -149,7 +149,7 @@ export default connect( state => {
 		isLinked: isCurrentUserLinked( state ),
 		hasConnectedOwner: hasConnectedOwner( state ),
 		showRecommendations: showRecommendations( state ),
-		newRecommendationsCount: getNewRecommendationsCount( state ),
+		newRecommendationsCount: getNewConditionalRecommendationsCount( state ),
 		siteUrl: getSiteRawUrl( state ),
 		purchaseToken: getPurchaseToken( state ),
 	};

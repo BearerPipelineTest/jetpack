@@ -43,11 +43,16 @@ const SummaryComponent = props => {
 		updateRecommendationsStep,
 		upgradeUrl,
 		upsell,
+		newRecommendations,
 	} = props;
 
 	useEffect( () => {
 		updateRecommendationsStep( 'summary' );
 	}, [ updateRecommendationsStep ] );
+
+	const isNew = stepSlug => {
+		return newRecommendations.includes( stepSlug );
+	};
 
 	const mainContent = isFetchingMainData ? (
 		<JetpackLoadingIcon altText={ __( 'Loading recommendations', 'jetpack' ) } />
@@ -66,7 +71,7 @@ const SummaryComponent = props => {
 					<div>
 						{ summaryFeatureSlugs.selected.length > 0 ? (
 							summaryFeatureSlugs.selected.map( slug => (
-								<FeatureSummary key={ slug } featureSlug={ slug } />
+								<FeatureSummary key={ slug } featureSlug={ slug } isNew={ isNew( slug ) } />
 							) )
 						) : (
 							<p className="jp-recommendations-summary__recommendation-notice">
@@ -85,7 +90,7 @@ const SummaryComponent = props => {
 						<h2 id="skipped-recommendations">{ __( 'Recommendations skipped', 'jetpack' ) }</h2>
 						<div>
 							{ summaryFeatureSlugs.skipped.map( slug => (
-								<FeatureSummary key={ slug } featureSlug={ slug } />
+								<FeatureSummary key={ slug } featureSlug={ slug } isNew={ isNew( slug ) } />
 							) ) }
 						</div>
 					</section>
