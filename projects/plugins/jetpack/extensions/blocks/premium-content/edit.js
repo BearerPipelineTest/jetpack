@@ -18,13 +18,13 @@ import './editor.scss';
 import useAutosaveAndRedirect from '../../shared/use-autosave-and-redirect';
 import ViewSelector from './_inc/view-selector';
 import InvalidSubscriptionWarning from './_inc/invalid-subscription-warning';
-import ProductManagementControl from '../../shared/components/product-management-control';
-import useProducts from '../../shared/components/product-management-control/use-product';
-import { jetpackMembershipProductsStore } from '../../shared/components/product-management-control/store';
+import ProductManagementControls from '../../shared/components/product-management-controls';
+import useProducts from '../../shared/components/product-management-controls/use-product';
+import { jetpackMembershipProductsStore } from '../../shared/components/product-management-controls/store';
 import {
 	API_STATE_LOADING,
 	API_STATE_CONNECTED,
-} from '../../shared/components/product-management-control/constants';
+} from '../../shared/components/product-management-controls/constants';
 
 /**
  * @typedef { import('./plan').Plan } Plan
@@ -192,7 +192,7 @@ function Edit( props ) {
 
 			<div className={ className } ref={ wrapperRef }>
 				{ ( isSelected || selectedInnerBlock ) && apiState === API_STATE_CONNECTED && (
-					<ProductManagementControl
+					<ProductManagementControls
 						saveProduct={ saveProduct }
 						selectedProductId={ props.attributes.selectedPlanId }
 						selectProduct={ selectProduct }
