@@ -17,7 +17,6 @@ import { flashIcon } from '../../shared/icons';
 import './editor.scss';
 import useAutosaveAndRedirect from '../../shared/use-autosave-and-redirect';
 import ViewSelector from './_inc/view-selector';
-import InvalidSubscriptionWarning from './_inc/invalid-subscription-warning';
 import ProductManagementControls from '../../shared/components/product-management-controls';
 import {
 	API_STATE_LOADING,
@@ -87,13 +86,9 @@ function Edit( props ) {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [] );
 
-	const { products, apiState, connectUrl, shouldUpgrade } = useSelect( selector => {
-		const { getAllProperties, getProducts } = selector( jetpackMembershipProductsStore );
-		return {
-			products: getProducts(),
-			...getAllProperties(),
-		};
-	} );
+	const { apiState, connectUrl, shouldUpgrade } = useSelect( selector => ( {
+		...selector( jetpackMembershipProductsStore ).getAllProperties(),
+	} ) );
 
 	//We would like to hide the tabs and controls when user clicks outside the premium content block
 	/**
@@ -188,10 +183,6 @@ function Edit( props ) {
 					setAttributes={ props.setAttributes }
 				/>
 
-				{ !! props.attributes.selectedPlanId &&
-					! products.find( plan => plan.id === props.attributes.selectedPlanId ) && (
-						<InvalidSubscriptionWarning />
-					) }
 				<Context.Provider
 					value={ {
 						selectedTab,
